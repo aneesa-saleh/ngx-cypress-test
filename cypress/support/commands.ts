@@ -1,3 +1,4 @@
+// @ts-check
 /// <reference types="cypress" />
 // ***********************************************
 // This example commands.ts shows you how to
@@ -35,3 +36,7 @@
 //     }
 //   }
 // }
+
+Cypress.Commands.add('openHomePage', () => {
+    cy.visit('/')
+})
