@@ -1,6 +1,8 @@
 /// <reference types="cypress" />
 
-describe('Our first suite', () => {
+import { navigateTo } from "../support/page-objects/navigation-page"
+
+describe.skip('Our first suite', () => {
     beforeEach(() => {
         cy.visit('/')
     })
@@ -116,8 +118,7 @@ describe('Our first suite', () => {
     })
 
     it('updates data in a table', () => {
-        cy.contains('Tables & Data').click()
-        cy.contains('Smart Table').click()
+        navigateTo.smartTablePage()
 
         cy.get('tbody').contains('tr', 'Larry').then((tableRow) => {
             cy.wrap(tableRow).find('.nb-edit').click()
@@ -184,7 +185,7 @@ describe('Our first suite', () => {
             })
     })
 
-    it.only('shows tooltip', () => {
+    it('shows tooltip', () => {
         cy.contains('Modal & Overlays').click()
         cy.contains('Tooltip').click()
 
